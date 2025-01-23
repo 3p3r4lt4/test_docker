@@ -16,6 +16,11 @@ WORKDIR /workspace
 
 RUN mkdir -p /root/.jupyter    
 
+RUN echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py && \ 
+    echo "c.NotebookApp.password = ''" >> /root/.jupyter/jupyter_notebook_config.py && \ 
+    echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py && \ 
+    echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py
+
 EXPOSE 8888
 
 CMD ["jupyter","notebook","--ip=0.0.0.0","--port=8888","--no-browser","--allow-root"]
