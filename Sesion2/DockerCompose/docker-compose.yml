@@ -1,0 +1,10 @@
+services:
+  mysql:
+    build: ../MysqlDocker/
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '3306:3306'
+volumes:
+  mysqldata:        
